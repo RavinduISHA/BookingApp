@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,9 @@ Route::get('/', function () {
 // auth routes
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+
+Route::post('/register', [AuthController::class, 'store'])->name('registerUser');
+Route::post('/login', [AuthController::class, 'loginToUser'])->name('loginUser');
+
+Route::get('/home', [HomeController::class, 'index']);
 
